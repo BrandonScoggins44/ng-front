@@ -12,6 +12,7 @@ phases:
             - ng build --prod
     post_build:
          commands:
+	    - aws s3 sync --delete dist/ng-front s3://aws-codepipeline-ng-front
             - echo Build completed on `date`
 artifacts:
     files:
